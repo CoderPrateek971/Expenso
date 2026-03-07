@@ -88,8 +88,11 @@ function App() {
   )
 
   return (
-    <div>
+    <div className='app'>
+    
+
       <RouterProvider router={myRouter}/>
+
     </div>
   )
 }

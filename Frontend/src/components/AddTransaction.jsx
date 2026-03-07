@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
+import '../App.css'
 
 const AddTransaction = (props) => {
     const{
@@ -26,7 +27,7 @@ const AddTransaction = (props) => {
     
 
   return (
-    <div>
+    <div className='addTransaction'>
         <h3 className='heading'>Add Transaction</h3>
         <form onSubmit={submitHandler}>
         <label >Enter Amount </label>
@@ -35,9 +36,9 @@ const AddTransaction = (props) => {
         <br />
         <label >Enter Transaction Type </label>
         <input type="radio" id='credit' name='type' value='credit' onChange={(e)=>{setType(e.target.value)}}/>
-        <label  for="credit">Credit</label>
+        <label  for="credit"> Credit </label>
         <input type="radio" id='debit' name='type' value='debit' onChange={(e)=>{setType(e.target.value)}} />
-        <label  for="debit">Debit</label>
+        <label  for="debit"> Debit </label>
         <br />
         <br />
         <label>{type === "debit" ? "Paid to" : "Received from"}</label>        <input type="text" value={name} onChange={(e)=>{setName(e.target.value) }}/>

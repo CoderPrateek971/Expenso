@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import './Heading.css'
-import './SignUp.css'
 
 const SignUp = () => {
     const {
@@ -16,7 +14,7 @@ const SignUp = () => {
     const onSubmit = (data) => {
         console.log(data);
     };
-   
+
     return (
         <div className='container'>
             <h2 className='heading'>Sign Up</h2>
@@ -27,7 +25,7 @@ const SignUp = () => {
                         <label>Email<sup className="star">*</sup></label>
                         <input type="email" {...register('Email', { required: "Email is required" })} />
                     </div>
-                        {errors.Email && <p>{errors.Email.message}</p>}
+                    {errors.Email && <p>{errors.Email.message}</p>}
                     <div className="info">
                         <div className="field">
                             <label>First Name<sup className="star">*</sup></label>
@@ -68,9 +66,9 @@ const SignUp = () => {
                     </div>
                     <br />
                     <div className="field">
-                    <button type="submit" disabled={isSubmitting}>
-                        {isSubmitting ? "Submitting..." : "Sign Up"}
-                    </button>
+                        <button type="submit" disabled={isSubmitting}>
+                            {isSubmitting ? "Submitting..." : "Sign Up"}
+                        </button>
 
                     </div>
                 </form>

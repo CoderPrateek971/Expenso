@@ -1,0 +1,367 @@
+/* .app{
+    
+    color: aliceblue;
+    height: 500px;
+} */
+
+/* navbar */
+/* .navbar{
+    background-color: black;
+    height: 50px;
+    max-width: 100%;
+}
+a{
+    text-decoration: none;
+    color: rgb(255, 217, 0);
+}
+.ul_navbar{
+    display: flex;
+    justify-content: space-between;   
+    align-items: center;
+    padding: 10px 20px;
+    list-style: none;
+}
+.nav{
+    display: flex;
+    gap: 20px;
+} */
+
+/* home */
+/* .home{
+    display: flex;
+    gap: 10px;
+    margin: 200px;
+    align-items: center;
+    justify-content: center;
+}
+
+.sub_home{
+    background-color: black;
+    width: 400px;
+    height: 200px;
+    border-radius: 10px;
+    border-style: dotted;
+    border-color: rgb(251, 255, 6);
+    flex-shrink: 0;
+} */
+
+/* heading */
+/* .heading{
+    font-size: xx-large;
+    text-align: center;
+  
+} */
+
+
+/* signup */
+/* .container{
+    line-height: 20px;
+    background-color: grey;
+    width: 600px;
+    padding: 20px;
+    margin: 40px auto;   
+    text-align: center;    
+}
+.container input{
+    width: 220px;
+    height: 30px;
+    padding: 4px 8px;
+    box-sizing: border-box;
+}
+
+.form{
+    font-size: larger;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    gap: 12px;   
+}
+.row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
+  
+.row label{
+    min-width: 80px;     
+    text-align:right;
+}
+
+.row input{
+    flex: 0  0 20px;  
+    width: 200px;  
+    text-align: center;
+}
+
+
+.star{
+    color: red;
+    font-size: 12px;
+}
+
+.container p{
+    color: red;
+    font-size: 12px;
+    margin: 2px 0 0;
+}
+
+.info{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.field{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+button{
+    background-color: green;
+    width: 80px;
+    height: 40px;
+    border-radius: 6px;
+    color: antiquewhite;
+    border-style: none;
+} */
+
+
+
+/* transactionList */
+/* .transaction_List{
+    background-color: black;
+    padding: 4px;
+    height: auto;
+}
+.transaction_List_Button{
+    text-align: right;
+}
+.green{
+    color: green;
+}
+
+.red{
+    color: red;
+} */
+
+/* balance */
+/* .balance,.income{
+    text-align: center;
+}
+
+.income{
+    background-color: black;
+} */
+
+
+/* GLOBAL */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  body{
+    background:#f4f6fb;
+  }
+  
+  /* HEADINGS */
+  
+  .heading{
+    margin-bottom:15px;
+    color:#333;
+  }
+  
+  /* NAVBAR */
+  
+  .navbar{
+    background:#4f46e5;
+    padding:15px 40px;
+  }
+  
+  .ul_navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    list-style:none;
+  }
+  
+  .nav{
+    display:flex;
+    gap:20px;
+  }
+  
+  .nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+  }
+  
+  .nav a:hover{
+    text-decoration:underline;
+  }
+  
+  /* HOME */
+  
+  .home{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    margin-top:40px;
+  }
+  
+  .sub_home{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+    min-width:200px;
+  }
+  
+  /* BALANCE */
+  
+  .balance{
+    text-align:center;
+    font-size:20px;
+  }
+  
+  /* INCOME EXPENSE */
+  
+  .income{
+    text-align:center;
+    font-size:18px;
+  }
+  
+  /* ADD TRANSACTION */
+  .addTransaction{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+  }
+  form{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+    width:350px;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="password"]{
+    width:100%;
+    padding:8px;
+    border:1px solid #ccc;
+    border-radius:5px;
+  }
+  
+  button{
+    background:#4f46e5;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:6px;
+    cursor:pointer;
+  }
+  
+  button:hover{
+    background:#4338ca;
+  }
+  
+  /* LOGIN / SIGNUP */
+  
+  .container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-top:50px;
+  }
+  
+  .form{
+    width:350px;
+  }
+  
+  .row{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:15px;
+  }
+  
+  .info{
+    display:flex;
+    gap:20px;
+  }
+  
+  .field{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+  }
+  
+  .field input{
+    width:100%;
+    padding:8px;
+    margin-bottom: 5px;
+    border:1px solid #ccc;
+    border-radius:5px;
+  }
+  
+  .star{
+    color:red;
+  }
+  
+  p{
+    color:red;
+    font-size:13px;
+  }
+  
+  /* TRANSACTION LIST */
+  
+  .transaction_List{
+    width:400px;
+    margin:40px auto;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+  }
+  
+  .transaction_List ul{
+    list-style:none;
+  }
+  
+  .transaction_List li{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#f9fafb;
+    padding:10px;
+    border-radius:6px;
+  }
+  
+  .transaction_List_button button{
+    background:#ef4444;
+    padding:6px 12px;
+  }
+  
+  .transaction_List_button button:hover{
+    background:#dc2626;
+  }
+  
+  /* AMOUNT COLORS */
+  
+  .green{
+    color:#16a34a;
+    font-weight:600;
+  }
+  
+  .red{
+    color:#dc2626;
+    font-weight:600;
+  }
