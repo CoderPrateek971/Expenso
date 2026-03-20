@@ -33,7 +33,7 @@ exports.addTransaction= async (req,res)=>{
     });
   }
 };
-exports.deleteTransaction= async (req,res)=>{
+exports.deleteTransaction = async (req,res)=>{
   try{
     const transaction = await Transaction.findById(req.params.id);
     if(!transaction){
@@ -42,12 +42,12 @@ exports.deleteTransaction= async (req,res)=>{
         message:"Not found"
       });
 
-      await transaction.deleteOne();
-      res.status(200).json({
-        success:true,
-        message:"Deleted succesfully"
-      });
     }
+    await transaction.deleteOne();
+    res.status(200).json({
+      success:true,
+      message:"Deleted succesfully"
+    });
   }catch(error){
     res.status(500).json({
       success:false,

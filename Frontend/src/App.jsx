@@ -1,7 +1,5 @@
-import { useState } from 'react'
-import Balance from './components/Balance'
+import { useState, useEffect } from 'react'
 import AddTransaction from './components/AddTransaction'
-import IncomeExpenses from './components/IncomeExpenses'
 import './App.css'
 import TransactionList from './components/TransactionList';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
@@ -9,14 +7,16 @@ import Home from './components/Home'
 import Navbar from './components/Navbar'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
+import Dashboard from './components/Dashboard'
+import axios from "axios";
+
 
 
 function App() {
-  const [transactions, setTransactions] = useState([
-    { id: 1, text: 'Flower', amount: -20 , type : "debit"},
-    { id: 2, text: 'Salary', amount: 300 , type : "credit"},
-    { id: 3, text: 'Book', amount: -10 , type : "debit"},
-  ]);
+  const [transactions, setTransactions] = useState([]);
+  const [amount,setAmount]= useState();
+  const [text,setText]= useState("");
+
   
   const amounts = transactions.map(t => t.amount);
   const totalBalance = amounts.reduce((acc, curr) => acc + curr, 0);
@@ -24,27 +24,41 @@ function App() {
   const TotalIncome = Income.reduce((acc,curr)=> acc+(curr),0);
   const expense = amounts.filter((amount)=> amount<0);
   const TotalExpense = expense.reduce((acc,curr)=> acc+(-curr),0);
-  
+
+ 
   const addTransaction = (transaction) => {
-    
-    const nextId =
-    transactions.length > 0 ? transactions[transactions.length - 1].id + 1 : 1;
-    
-    const newTx = {
-      id: nextId,
-      ...transaction
-    };
-    
-    setTransactions([...transactions, newTx]);
-  };
+
+    axios.post("http://localhost:5000/api/v1/transactions", transaction)
+    .then((response)=>{
+      setTransactions((prev)=>[...prev,response.data.data])
+    })
+    .catch((error)=>{
+      console.log("error:",error)
+    })
   
+  }
+
+
   const deleteTransaction=(id)=>{
-    setTransactions(transactions.filter(t => t.id !== id))
+    axios.delete(`http://localhost:5000/api/v1/transactions/${id}`)
+    .then(()=>{
+      setTransactions(prev => prev.filter(t => t._id !== id))   
+    })
+    .catch((error)=>{
+      console.log(error);
+    })
   }
   const myRouter= createBrowserRouter(
     [
       {
         path:"/",
+        element:
+        <div>
+        <Dashboard/>
+        </div>
+      },
+      {
+        path:"/home",
         element:
         <div>
         <Navbar/>
@@ -71,7 +85,6 @@ function App() {
         path:"/Login",
         element:
         <div>
-        <Navbar/>
         <Login /> 
         </div>
       },
@@ -79,13 +92,25 @@ function App() {
         path:"/SignUp",
         element:
         <div>
-        <Navbar/>
         <SignUp /> 
         </div>
       },
       
     ]
   )
+
+  useEffect(()=>{
+    axios.get("http://localhost:5000/api/v1/transactions")
+    .then((response)=>{
+      setTransactions(response.data.data)
+    })
+    .catch((error)=>{
+      console.log("error : ", error);
+    })
+  },[])
+
+
+  
 
   return (
     <div className='app'>

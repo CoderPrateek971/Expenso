@@ -2,7 +2,7 @@ import React from 'react'
 
 const Balance = (props) => {
   return (
-    <div className='balance'>
+    <div className='balance' >
         <h3 className='heading'>Balance</h3>
         <div>{props.balance}</div>
 
