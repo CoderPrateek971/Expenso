@@ -118,10 +118,6 @@ http://localhost:5173
 
 ## 🔮 Future Improvements
 
-* Add backend using **Node.js and Express**
-* Store data in **MongoDB**
-* Implement **authentication system**
-* Add **charts and analytics for expenses**
 * Deploy the app online
 
 ---
