@@ -2,7 +2,7 @@ const Transaction = require('../models/Transaction');
 
 exports.getTransaction = async (req,res)=>{
   try{
-    const transaction = await Transaction.find();
+  const transaction = await Transaction.find({userId: req.user.id});
     res.status(200).json({
       success : true,
       data : transaction
@@ -20,7 +20,8 @@ exports.addTransaction= async (req,res)=>{
     const {text,amount}=req.body;
     const transaction = await Transaction.create({
       text,
-      amount
+      amount,
+      userId: req.user.id 
     });
     res.status(201).json({
       success:true,
@@ -35,7 +36,10 @@ exports.addTransaction= async (req,res)=>{
 };
 exports.deleteTransaction = async (req,res)=>{
   try{
-    const transaction = await Transaction.findById(req.params.id);
+    const transaction = await Transaction.findOne({
+      _id: req.params.id,
+      userId: req.user.id 
+    });
     if(!transaction){
       res.status(404).json({
         success:false,

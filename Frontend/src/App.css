@@ -22,6 +22,10 @@
     color: #f9fafb;
     background-color: #0e53cbd7;
   }
+
+  li {
+    margin-bottom: 10px;
+  }
   
   /* HEADINGS */
   

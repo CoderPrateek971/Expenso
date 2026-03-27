@@ -28,7 +28,11 @@ function App() {
  
   const addTransaction = (transaction) => {
 
-    axios.post("http://localhost:5000/api/v1/transactions", transaction)
+    axios.post("http://localhost:5000/api/v1/transactions", transaction, {  
+      headers: {
+      Authorization: localStorage.getItem("token")   
+    }
+  })
     .then((response)=>{
       setTransactions((prev)=>[...prev,response.data.data])
     })
@@ -40,7 +44,11 @@ function App() {
 
 
   const deleteTransaction=(id)=>{
-    axios.delete(`http://localhost:5000/api/v1/transactions/${id}`)
+    axios.delete(`http://localhost:5000/api/v1/transactions/${id}`, {
+      headers: {
+        Authorization: localStorage.getItem("token")   
+      }
+    })
     .then(()=>{
       setTransactions(prev => prev.filter(t => t._id !== id))   
     })
@@ -48,6 +56,7 @@ function App() {
       console.log(error);
     })
   }
+
   const myRouter= createBrowserRouter(
     [
       {
@@ -100,7 +109,11 @@ function App() {
   )
 
   useEffect(()=>{
-    axios.get("http://localhost:5000/api/v1/transactions")
+    axios.get("http://localhost:5000/api/v1/transactions", {
+      headers: {
+        Authorization: localStorage.getItem("token")   
+      }
+    })
     .then((response)=>{
       setTransactions(response.data.data)
     })

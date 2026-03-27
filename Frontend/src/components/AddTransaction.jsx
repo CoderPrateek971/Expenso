@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import '../App.css'
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+
 
 const AddTransaction = (props) => {
-    const{
-        handleSubmit,
-        formState:{errors},
-    }=useForm();
-
+  const{
+    handleSubmit,
+    formState:{errors},
+  }=useForm();
+  
+  const navigate = useNavigate();
     const[amount, setAmount]= useState(0);
     const[type,setType]= useState("debit");
     const[name,setName]=useState("") 
@@ -24,7 +26,9 @@ const AddTransaction = (props) => {
         };
         props.new_transaction(newTx)
 
-        navigate("/TransactionList")
+        navigate("/TransactionList");
+
+        
     }
     
     
@@ -47,7 +51,7 @@ const AddTransaction = (props) => {
         <label>{type === "debit" ? "Paid to" : "Received from"}</label>        <input type="text" value={name} onChange={(e)=>{setName(e.target.value) }}/>
         <br />
         <br />
-        <button type='submit' onClick={submitHandler}>Submit</button>
+        <button type='submit'>Submit</button>
         </form>
     </div>
   )
