@@ -130,7 +130,7 @@ function App() {
     }
   ]);
 
-  useEffect(() => {
+ const fetchTransactions = () => {
     const token = localStorage.getItem("token");
 
     if (!token) {
@@ -150,7 +150,11 @@ function App() {
         console.log("error : ", error);
       })
 
-  }, [localStorage.getItem("token")]);
+  };
+
+  useEffect(() => {
+    fetchTransactions();
+  }, []);
 
 
 
