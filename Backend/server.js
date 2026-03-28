@@ -15,7 +15,11 @@ app.use(cors());
 
 
 app.use(cors({
-  origin: "*"
+  origin: [
+    "https://expenso-git-main-prateekgarg0305-8272s-projects.vercel.app",
+    "https://expenso-7zr1j7gl-prateekgarg0305-8272s-projects.vercel.app"
+  ],
+  credentials: true
 }));
 
 
