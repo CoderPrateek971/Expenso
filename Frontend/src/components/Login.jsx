@@ -34,6 +34,7 @@ const Login = () => {
             localStorage.setItem("token", token);
 
             console.log("TOKEN:", token);
+            console.log("FULL RESPONSE:", response.data);
             alert("Login successful");
 
             navigate("/home");
