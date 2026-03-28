@@ -2,6 +2,8 @@ import React from 'react'
 import Balance from './Balance'
 import IncomeExpenses from './IncomeExpenses'
 import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+
 
 const Home = (props) => {
 
