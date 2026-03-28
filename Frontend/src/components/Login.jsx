@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     const navigate = useNavigate();
+
     const {
         handleSubmit,
         register,
@@ -29,7 +30,7 @@ const Login = () => {
                 }
             );
 
-            const token = response.data.data.token;
+            const token = response.data.token;
 
             localStorage.setItem("token", token);
 
