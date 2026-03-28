@@ -27,7 +27,7 @@ const TransactionList = () => {
 
   useEffect(() => {
     fetchTransactions();
-  }, []);
+  }, [token]);
 
   return (
     <div className='transaction_List' style={{ marginTop: "185px" }}>
