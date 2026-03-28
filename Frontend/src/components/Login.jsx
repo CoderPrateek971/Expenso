@@ -29,15 +29,18 @@ const Login = () => {
                 }
             );
 
-            localStorage.setItem("token", response.data.token);
+            const token = response.data.data.token;
 
-            console.log("TOKEN:", response.data.token);
+            localStorage.setItem("token", token);
+
+            console.log("TOKEN:", token);
             alert("Login successful");
 
             navigate("/home");
 
         } catch (error) {
-            alert(error.response.data.message);
+            console.log("ERROR:", error.response?.data);
+            alert(error.response?.data?.message || "Login failed ❌");
   
         }
     };
