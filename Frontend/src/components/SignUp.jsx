@@ -22,7 +22,7 @@ const SignUp = () => {
 
     const handleSignup = async (data) => {
         try{
-            const response = await axios.post("http://localhost:5000/api/v1/auth/signup",
+            const response = await axios.post("https://expenso-osyg.onrender.com/api/v1/auth/signup",
                 {
                     email: data.email,
                     first_name: data.first_name,

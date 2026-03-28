@@ -22,7 +22,7 @@ const Login = () => {
     const handleLogin = async (data) => {
         try{
             console.log(data);
-            const response = await axios.post("http://localhost:5000/api/v1/auth/login",
+            const response = await axios.post("https://expenso-osyg.onrender.com/api/v1/auth/login",
                 {
                     email: data.email,
                     password: data.password
