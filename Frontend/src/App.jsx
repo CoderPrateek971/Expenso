@@ -25,6 +25,14 @@ function App() {
   const expense = amounts.filter((amount)=> amount<0);
   const TotalExpense = expense.reduce((acc,curr)=> acc+(-curr),0);
 
+    // CHECK LOGIN FIRST
+    useEffect(() => {
+      const token = localStorage.getItem("token");
+  
+      if (!token) {
+        window.location.href = "/Login";
+      }
+    }, []);
  
   const addTransaction = (transaction) => {
 
@@ -108,10 +116,17 @@ function App() {
     ]
   )
 
-  useEffect(()=>{
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+  
+    if (!token) {
+      console.log("No token found ❌");
+      return;
+    }
+  
     axios.get("https://expenso-osyg.onrender.com/api/v1/transactions", {
       headers: {
-        Authorization: localStorage.getItem("token")   
+        Authorization: token
       }
     })
     .then((response)=>{
@@ -120,7 +135,8 @@ function App() {
     .catch((error)=>{
       console.log("error : ", error);
     })
-  },[])
+  
+  }, [])
 
 
   
