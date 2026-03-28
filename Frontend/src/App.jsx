@@ -28,7 +28,7 @@ function App() {
  
   const addTransaction = (transaction) => {
 
-    axios.post("http://localhost:5000/api/v1/transactions", transaction, {  
+    axios.post("https://expenso-osyg.onrender.com/api/v1/transactions", transaction, {  
       headers: {
       Authorization: localStorage.getItem("token")   
     }
@@ -44,7 +44,7 @@ function App() {
 
 
   const deleteTransaction=(id)=>{
-    axios.delete(`http://localhost:5000/api/v1/transactions/${id}`, {
+    axios.delete(`https://expenso-osyg.onrender.com/api/v1/transactions/${id}`, {
       headers: {
         Authorization: localStorage.getItem("token")   
       }
@@ -109,7 +109,7 @@ function App() {
   )
 
   useEffect(()=>{
-    axios.get("http://localhost:5000/api/v1/transactions", {
+    axios.get("https://expenso-osyg.onrender.com/api/v1/transactions", {
       headers: {
         Authorization: localStorage.getItem("token")   
       }

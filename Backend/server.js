@@ -14,6 +14,11 @@ app.use(express.json());
 app.use(cors());
 
 
+app.use(cors({
+  origin: "https://expenso-delta.vercel.app/"
+}));
+
+
 const transactionRoutes = require("./routes/transactionRoutes");
 app.use("/api/v1", transactionRoutes);
 
