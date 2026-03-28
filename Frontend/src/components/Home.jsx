@@ -1,11 +1,18 @@
 import React from 'react'
 import Balance from './Balance'
 import IncomeExpenses from './IncomeExpenses'
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 
 
 const Home = (props) => {
 
+  const location = useLocation();
+
+  useEffect(() => {
+    props.fetchTransactions();  
+  }, [location.pathname]);
 
   return (
     <div className='home'>

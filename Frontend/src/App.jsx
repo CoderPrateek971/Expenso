@@ -79,6 +79,7 @@ function App() {
             balance={totalBalance}
             income={TotalIncome}
             expense={TotalExpense}
+            fetchTransactions={fetchTransactions} 
           />
         </ProtectedRoute>
       ) : (
