@@ -27,6 +27,31 @@ function App() {
   const expense = amounts.filter((amount) => amount < 0);
   const TotalExpense = expense.reduce((acc, curr) => acc + (-curr), 0);
 
+  const fetchTransactions = () => {
+
+    if (!token) {
+      console.log("No token found ❌");
+      return;
+    }
+
+    axios.get("https://expenso-osyg.onrender.com/api/v1/transactions", {
+      headers: {
+        Authorization: token
+      }
+    })
+      .then((response) => {
+        setTransactions(response.data.data)
+      })
+      .catch((error) => {
+        console.log("error : ", error);
+      })
+
+  };
+
+  useEffect(() => {
+    fetchTransactions();
+  }, [token]);
+
 
   const addTransaction = (transaction) => {
 
@@ -133,33 +158,6 @@ function App() {
       )
     }
   ]);
-
- const fetchTransactions = () => {
-
-    if (!token) {
-      console.log("No token found ❌");
-      return;
-    }
-
-    axios.get("https://expenso-osyg.onrender.com/api/v1/transactions", {
-      headers: {
-        Authorization: token
-      }
-    })
-      .then((response) => {
-        setTransactions(response.data.data)
-      })
-      .catch((error) => {
-        console.log("error : ", error);
-      })
-
-  };
-
-  useEffect(() => {
-    fetchTransactions();
-  }, [token]);
-
-
 
 
   return (
