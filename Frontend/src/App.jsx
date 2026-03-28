@@ -15,6 +15,7 @@ import ProtectedRoute from "./ProtectedRoute.jsx";
 
 function App() {
   const [transactions, setTransactions] = useState([]);
+  const [token, setToken] = useState(token);
   const [amount, setAmount] = useState();
   const [text, setText] = useState("");
 
@@ -31,7 +32,7 @@ function App() {
 
     axios.post("https://expenso-osyg.onrender.com/api/v1/transactions", transaction, {
       headers: {
-        Authorization: localStorage.getItem("token")
+        Authorization: token
       }
     })
       .then((response) => {
@@ -44,10 +45,11 @@ function App() {
   }
 
 
+
   const deleteTransaction = (id) => {
     axios.delete(`https://expenso-osyg.onrender.com/api/v1/transactions/${id}`, {
       headers: {
-        Authorization: localStorage.getItem("token")
+        Authorization: token
       }
     })
       .then(() => {
@@ -70,9 +72,9 @@ function App() {
 
     {
       path: "/home",
-      element: localStorage.getItem("token") ? (
+      element: token ? (
         <ProtectedRoute>
-          <Navbar />
+          <Navbar setToken={setToken} />
           <Home
             balance={totalBalance}
             income={TotalIncome}
@@ -86,9 +88,9 @@ function App() {
 
     {
       path: "/TransactionList",
-      element: localStorage.getItem("token") ? (
+      element: token ? (
         <ProtectedRoute>
-          <Navbar />
+          <Navbar  setToken={setToken}/>
           <TransactionList
             list={transactions}
             delete={deleteTransaction}
@@ -101,9 +103,9 @@ function App() {
 
     {
       path: "/AddTransaction",
-      element: localStorage.getItem("token") ? (
+      element: token ? (
         <ProtectedRoute>
-          <Navbar />
+          <Navbar setToken={setToken} />
           <AddTransaction new_transaction={addTransaction} />
         </ProtectedRoute>
       ) : (
@@ -115,7 +117,7 @@ function App() {
       path: "/Login",
       element: (
         <div>
-          <Login />
+          <Login setToken={setToken}/>
         </div>
       )
     },
@@ -131,7 +133,7 @@ function App() {
   ]);
 
  const fetchTransactions = () => {
-    const token = localStorage.getItem("token");
+    const token = token;
 
     if (!token) {
       console.log("No token found ❌");

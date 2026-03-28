@@ -9,6 +9,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.removeItem("token");   
+    setToken(null);
     window.location.reload();                 
   }
 
