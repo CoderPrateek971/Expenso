@@ -9,7 +9,7 @@ import SignUp from './components/SignUp'
 import Login from './components/Login'
 import Dashboard from './components/Dashboard'
 import axios from "axios";
-import ProtectedRoute from "./ProtectedRoute";
+import ProtectedRoute from "/Users/prateekgarg/Documents/Expense Tracker/Frontend/vercel.json";
 
 
 
