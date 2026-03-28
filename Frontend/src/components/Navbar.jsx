@@ -1,15 +1,13 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
 
 
-const Navbar = () => {
+const Navbar = (props) => {
 
-  const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.removeItem("token");   
-    setToken(null);
+    props.setToken(null);
     window.location.reload();                 
   }
 

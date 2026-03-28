@@ -94,6 +94,7 @@ function App() {
           <TransactionList
             list={transactions}
             delete={deleteTransaction}
+            token={token} 
           />
         </ProtectedRoute>
       ) : (
