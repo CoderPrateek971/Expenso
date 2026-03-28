@@ -7,8 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const Login = () => {
-    const [token, setToken] = useState(localStorage.getItem("token"));
+const Login = (props) => {
     const navigate = useNavigate();
 
     const {
@@ -40,7 +39,7 @@ const Login = () => {
       
           
           localStorage.setItem("token", token);
-          setToken(token);
+          props.setToken(token);
 
           if (!token) {
             alert("Token not received ❌");
