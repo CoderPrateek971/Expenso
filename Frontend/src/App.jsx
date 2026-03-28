@@ -25,14 +25,6 @@ function App() {
   const expense = amounts.filter((amount)=> amount<0);
   const TotalExpense = expense.reduce((acc,curr)=> acc+(-curr),0);
 
-    // CHECK LOGIN FIRST
-    useEffect(() => {
-      const token = localStorage.getItem("token");
-  
-      if (!token) {
-        window.location.href = "/";
-      }
-    }, []);
  
   const addTransaction = (transaction) => {
 
