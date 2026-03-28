@@ -34,12 +34,13 @@ const Login = () => {
       
           const token = response?.data?.token || response?.data?.data?.token;
       
+          
+          localStorage.setItem("token", token);
+          
           if (!token) {
             alert("Token not received ❌");
             return;
           }
-      
-          localStorage.setItem("token", token);
       
           alert("Login successful ✅");
           navigate("/home");
