@@ -15,21 +15,31 @@ const AddTransaction = (props) => {
     const[type,setType]= useState("debit");
     const[name,setName]=useState("") 
 
-    const submitHandler = (e) => {
-        e.preventDefault();
+    const submitHandler = async (e) => {
+      e.preventDefault();
     
-        const newTx = {
-          text: name,
-          amount: type === "debit" ? -Number(amount) : Number(amount),
-          type: type,
-
-        };
-        props.new_transaction(newTx)
-
+      const newTx = {
+        text: name,
+        amount: type === "debit" ? -Number(amount) : Number(amount),
+      };
+    
+      try {
+        await axios.post(
+          "https://expenso-osyg.onrender.com/api/v1/transactions",
+          newTx,
+          {
+            headers: {
+              Authorization: localStorage.getItem("token"),
+            },
+          }
+        );
+    
         navigate("/TransactionList");
-
-        
-    }
+    
+      } catch (error) {
+        console.log(error);
+      }
+    };
     
     
 
