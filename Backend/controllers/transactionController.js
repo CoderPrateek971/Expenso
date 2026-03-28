@@ -3,10 +3,15 @@ const Transaction = require('../models/Transaction');
 exports.getTransaction = async (req,res)=>{
   try{
   const transaction = await Transaction.find({userId: req.user.id});
+
+  console.log("REQ.USER:", req.user);
     res.status(200).json({
       success : true,
       data : transaction
     });
+
+    console.log("DATA RETURNED:", data);
+
   }catch(error){
     res.status(500).json({
       success:false,
