@@ -36,6 +36,9 @@ const Login = () => {
 
             console.log("TOKEN:", token);
             console.log("FULL RESPONSE:", response.data);
+            setTimeout(() => {
+                navigate("/home");
+              }, 2000); 
             alert("Login successful");
 
             navigate("/home");
