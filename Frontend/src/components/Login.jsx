@@ -35,7 +35,7 @@ const Login = () => {
             localStorage.setItem("token", token);
 
             console.log("TOKEN:", token);
-            console.log("FULL RESPONSE:", response.data);
+            console.log("FULL RESPONSE:", response);
             setTimeout(() => {
                 navigate("/home");
               }, 2000); 
@@ -43,7 +43,7 @@ const Login = () => {
 
 
         } catch (error) {
-            console.log("ERROR:", error.response?.data);
+            console.log("ERROR:", error);
             alert(error.response?.data?.message || "Login failed ❌");
   
         }
