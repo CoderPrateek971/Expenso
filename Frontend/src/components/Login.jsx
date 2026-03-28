@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const Login = () => {
+    const [token, setToken] = useState(localStorage.getItem("token"));
     const navigate = useNavigate();
 
     const {
@@ -36,7 +37,8 @@ const Login = () => {
       
           
           localStorage.setItem("token", token);
-          
+          setToken(token);
+
           if (!token) {
             alert("Token not received ❌");
             return;
