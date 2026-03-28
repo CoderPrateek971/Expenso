@@ -21,33 +21,34 @@ const Login = () => {
     }
 
     const handleLogin = async (data) => {
-        try{
-            console.log(data);
-            const response = await axios.post("https://expenso-osyg.onrender.com/api/v1/auth/login",
-                {
-                    email: data.email,
-                    password: data.password
-                }
-            );
-
-            const token = response.data.data.token;
-
-            localStorage.setItem("token", token);
-
-            console.log("TOKEN:", token);
-            console.log("FULL RESPONSE:", response);
-            setTimeout(() => {
-                navigate("/home");
-              }, 2000); 
-            alert("Login successful");
-
-
+        try {
+          const response = await axios.post(
+            "https://expenso-osyg.onrender.com/api/v1/auth/login",
+            {
+              email: data.email,
+              password: data.password
+            }
+          );
+      
+          console.log("FULL RESPONSE:", response);
+      
+          const token = response?.data?.token || response?.data?.data?.token;
+      
+          if (!token) {
+            alert("Token not received ❌");
+            return;
+          }
+      
+          localStorage.setItem("token", token);
+      
+          alert("Login successful ✅");
+          navigate("/home");
+      
         } catch (error) {
-            console.log("ERROR:", error);
-            alert(error.response?.data?.message || "Login failed ❌");
-  
+          console.log("FULL ERROR:", error);
+          alert("Login failed ❌");
         }
-    };
+      };
 
   return (
     <div className='container' style={{ marginTop: "185px" }}>
