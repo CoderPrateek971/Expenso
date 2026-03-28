@@ -8,13 +8,6 @@ import { useEffect } from "react";
 const Home = (props) => {
 
 
-  const location = useLocation();
-
-  useEffect(() => {
-    fetchData();
-  }, [location.pathname]);
-
-
   return (
     <div className='home'>
       <div className='sub_home'>
