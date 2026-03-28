@@ -30,7 +30,7 @@ const Login = () => {
                 }
             );
 
-            const token = response.data.token;
+            const token = response.data.data.token;
 
             localStorage.setItem("token", token);
 
@@ -41,7 +41,6 @@ const Login = () => {
               }, 2000); 
             alert("Login successful");
 
-            navigate("/home");
 
         } catch (error) {
             console.log("ERROR:", error.response?.data);
