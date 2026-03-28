@@ -10,7 +10,7 @@ exports.getTransaction = async (req,res)=>{
       data : transaction
     });
 
-    console.log("DATA RETURNED:", data);
+    console.log("DATA RETURNED:", transaction);
 
   }catch(error){
     res.status(500).json({
