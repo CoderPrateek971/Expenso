@@ -15,7 +15,7 @@ app.use(cors());
 
 
 app.use(cors({
-  origin: "https://expenso-delta.vercel.app/"
+  origin: "*"
 }));
 
 
