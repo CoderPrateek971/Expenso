@@ -1,7 +1,14 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 
+
 const Navbar = () => {
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");   
+    navigate("/");                      
+  }
+
   return (
     <div className='navbar'>
         <ul className='ul_navbar'>
@@ -18,7 +25,7 @@ const Navbar = () => {
             </div>
             <div className='nav'>
             <li>
-            <Link to='/'>Logout</Link>
+            <button onClick={handleLogout}>Logout</button>
             </li>
             </div>
         </ul>

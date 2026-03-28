@@ -57,56 +57,77 @@ function App() {
     })
   }
 
-  const myRouter= createBrowserRouter(
-    [
-      {
-        path:"/",
-        element:
+  const myRouter = createBrowserRouter([
+    {
+      path: "/",
+      element: (
         <div>
-        <Dashboard/>
+          <Dashboard />
         </div>
-      },
-      {
-        path:"/home",
-        element:
+      )
+    },
+  
+    {
+      path: "/home",
+      element: localStorage.getItem("token") ? (
         <div>
-        <Navbar/>
-        <Home balance={totalBalance} income={TotalIncome} expense={TotalExpense} />
+          <Navbar />
+          <Home 
+            balance={totalBalance} 
+            income={TotalIncome} 
+            expense={TotalExpense} 
+          />
         </div>
-      },
-      {
-        path:"/TransactionList",
-        element:
+      ) : (
+        <Dashboard />   
+      )
+    },
+  
+    {
+      path: "/TransactionList",
+      element: localStorage.getItem("token") ? (
         <div>
-        <Navbar/>
-        <TransactionList list={transactions} delete={deleteTransaction}/>
+          <Navbar />
+          <TransactionList 
+            list={transactions} 
+            delete={deleteTransaction} 
+          />
         </div>
-      },
-      {
-        path:"/AddTransaction",
-        element:
+      ) : (
+        <Dashboard />
+      )
+    },
+  
+    {
+      path: "/AddTransaction",
+      element: localStorage.getItem("token") ? (
         <div>
-        <Navbar/>
-        <AddTransaction new_transaction = {addTransaction} /> 
+          <Navbar />
+          <AddTransaction new_transaction={addTransaction} />
         </div>
-      },
-      {
-        path:"/Login",
-        element:
+      ) : (
+        <Dashboard />
+      )
+    },
+  
+    {
+      path: "/Login",
+      element: (
         <div>
-        <Login /> 
+          <Login />
         </div>
-      },
-      {
-        path:"/SignUp",
-        element:
+      )
+    },
+  
+    {
+      path: "/SignUp",
+      element: (
         <div>
-        <SignUp /> 
+          <SignUp />
         </div>
-      },
-      
-    ]
-  )
+      )
+    }
+  ]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
