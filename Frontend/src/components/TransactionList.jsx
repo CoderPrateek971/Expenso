@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const TransactionList = () => {
+const TransactionList = (props) => {
 
   const [transactions, setTransactions] = useState([]);
 
@@ -27,7 +27,7 @@ const TransactionList = () => {
 
   useEffect(() => {
     fetchTransactions();
-  }, [token]);
+  }, [props.token]);
 
   return (
     <div className='transaction_List' style={{ marginTop: "185px" }}>
