@@ -15,7 +15,7 @@ import ProtectedRoute from "./ProtectedRoute.jsx";
 
 function App() {
   const [transactions, setTransactions] = useState([]);
-  const [token, setToken] = useState(token);
+  const [token, setToken] = useState(localStorage.getItem("token"));
   const [amount, setAmount] = useState();
   const [text, setText] = useState("");
 
@@ -133,7 +133,6 @@ function App() {
   ]);
 
  const fetchTransactions = () => {
-    const token = token;
 
     if (!token) {
       console.log("No token found ❌");
@@ -156,7 +155,7 @@ function App() {
 
   useEffect(() => {
     fetchTransactions();
-  }, []);
+  }, [token]);
 
 
 
