@@ -42,8 +42,8 @@ function App() {
 
     axios.get("https://expenso-osyg.onrender.com/api/v1/transactions", {
       headers: {
-        Authorization: token
-      }
+        Authorization: `Bearer ${token}`
+    }
     })
       .then((response) => {
         setTransactions(response.data.data)
@@ -63,7 +63,7 @@ function App() {
 
     axios.post("https://expenso-osyg.onrender.com/api/v1/transactions", transaction, {
       headers: {
-        Authorization: token
+       Authorization: `Bearer ${token}`
       }
     })
       .then((response) => {
@@ -80,7 +80,7 @@ function App() {
   const deleteTransaction = (id) => {
     axios.delete(`https://expenso-osyg.onrender.com/api/v1/transactions/${id}`, {
       headers: {
-        Authorization: token
+        Authorization: `Bearer ${token}`
       }
     })
       .then(() => {
