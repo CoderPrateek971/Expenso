@@ -45,7 +45,7 @@ const AddTransaction = (props) => {
         <label  htmlFor="debit"> Debit </label>
         <br />
         <br />
-        <label>{type === "debit" ? "Paid to" : "Received from"}</label>        <input type="text" value={name} onChange={(e)=>{setName(e.target.value) }}/>
+        <label>{type === "debit" ? "Paid to" : "Description"}</label>        <input type="text" value={name} onChange={(e)=>{setName(e.target.value) }}/>
         <br />
         <br />
         <button type='submit'>Submit</button>
