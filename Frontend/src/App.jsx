@@ -27,6 +27,12 @@ function App() {
   const expense = amounts.filter((amount) => amount < 0);
   const TotalExpense = expense.reduce((acc, curr) => acc + (-curr), 0);
 
+  useEffect(() => {
+    axios.get("https://expenso-osyg.onrender.com")
+      .then(() => console.log("Server ready"))
+      .catch(() => console.log("Server warmup failed"));
+  }, []);
+
   const fetchTransactions = () => {
 
     if (!token) {
