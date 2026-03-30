@@ -30,7 +30,7 @@ const AddTransaction = (props) => {
           newTx,
           {
             headers: {
-              Authorization: localStorage.getItem("token"),
+              Authorization: `Bearer ${localStorage.getItem("token")}`,            
             },
           }
         );
