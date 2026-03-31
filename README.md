@@ -6,12 +6,12 @@ It helps users manage their income and expenses securely with **user-specific da
 ---
 
 ## 🚀 Live Demo
-🌐  expenso-delta.vercel.app
+🌐  [expenso-delta.vercel.app](https://expenso-delta.vercel.app/)
 
 ---
 
 ## 📸 Preview
-<!-- Add screenshots here -->
+🔗Demo Video: https://drive.google.com/file/d/1VHmHlPyhBYp-K9si6WKiWCS1vS--vYyb/view?usp=sharing
 
 ---
 
@@ -114,7 +114,7 @@ npm run dev
 ```bash
 cd Backend
 npm install
-npm start
+npm run dev
 ```
 
 ---
@@ -162,7 +162,8 @@ JWT_SECRET=your_secret_key
 
 ## 👨‍💻 Author
 
-**Prateek Garg**  
+**Prateek Garg** 
+🔗Linkedn : https://www.linkedin.com/in/prateek-garg-coder/
 
 ---
 
