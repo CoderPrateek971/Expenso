@@ -163,6 +163,7 @@ JWT_SECRET=your_secret_key
 ## 👨‍💻 Author
 
 **Prateek Garg** 
+
 🔗Linkedn : https://www.linkedin.com/in/prateek-garg-coder/
 
 ---
