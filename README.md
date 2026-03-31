@@ -1,35 +1,69 @@
-# 💰 Expense Tracker (React)
+# 💰 Expenso – Full Stack Expense Tracker
 
-A simple **Expense Tracker Web Application** built using **React.js**.
-This app allows users to track their income and expenses, view their total balance, and manage transactions easily.
+A modern **full-stack Expense Tracker Web Application** built using **React, Node.js, Express, and MongoDB**.  
+It helps users manage their income and expenses securely with **user-specific data and authentication**.
 
 ---
 
-## 🚀 Features
+## 🚀 Live Demo
+🌐  expenso-delta.vercel.app
 
-* Add new transactions (Income / Expense)
-* View total balance
-* Automatically calculate total income and expenses
-* Delete transactions
-* Login and Signup forms with validation
-* Clean and simple user interface
+---
+
+## 📸 Preview
+<!-- Add screenshots here -->
+
+---
+
+## ✨ Features
+
+### 🔐 Authentication
+- User Signup & Login  
+- JWT-based Authentication  
+- Secure Logout  
+
+### 📊 Dashboard
+- View **Total Balance**  
+- Track **Total Income & Expenses**  
+- Clean UI (optimized for desktop)  
+
+### 💸 Transactions
+- Add Income / Expense  
+- View transaction history  
+- Delete transactions  
+- Real-time balance updates  
+
+### 👤 User-Specific Data
+- Each user sees only their own transactions  
+- Secure backend data handling  
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **React.js**
-* **React Router**
-* **React Hook Form**
-* **JavaScript (ES6)**
-* **CSS**
+### Frontend
+- React.js  
+- React Router  
+- React Hook Form  
+- Axios  
+- CSS  
+
+### Backend
+- Node.js  
+- Express.js  
+- MongoDB (Mongoose)  
+- JWT Authentication  
+- CORS & Environment Variables  
+
+### Deployment
+- Vercel (Frontend)  
+- Render (Backend)  
 
 ---
 
 ## 📂 Project Structure
 
-## 📂 Project Structure
-```
+```bash
 Expense-Tracker/
 │
 ├── Backend/
@@ -44,84 +78,94 @@ Expense-Tracker/
 │   ├── public/
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── AddTransaction.jsx
-│   │   │   ├── Balance.jsx
-│   │   │   ├── Home.jsx
-│   │   │   ├── IncomeExpenses.jsx
-│   │   │   ├── Login.jsx
-│   │   │   ├── Navbar.jsx
-│   │   │   ├── SignUp.jsx
-│   │   │   └── TransactionList.jsx
-│   │   │
 │   │   ├── context/
-│   │   │   ├── GlobalState.jsx
-│   │   │   └── AppReducer.js
-│   │   │
 │   │   ├── App.jsx
-│   │   ├── App.css
-│   │   ├── index.css
 │   │   └── main.jsx
-│   │
 │   ├── package.json
 │   └── index.html
 │
 └── README.md
 ```
+
 ---
 
-## ⚙️ Installation and Setup
+## ⚙️ Installation & Setup
 
 ### 1. Clone the repository
-
-```
+```bash
 git clone https://github.com/your-username/expense-tracker.git
 ```
 
-### 2. Go to the project directory
-
-```
+### 2. Navigate to project folder
+```bash
 cd expense-tracker
 ```
 
 ### 3. Install dependencies
 
-```
+#### Frontend
+```bash
+cd Frontend
 npm install
-```
-
-### 4. Run the application
-
-```
 npm run dev
 ```
 
-The app will run at:
-
+#### Backend
+```bash
+cd Backend
+npm install
+npm start
 ```
-http://localhost:5173
+
+---
+
+## 🔑 Environment Variables
+
+Create a `.env` file in the **Backend** folder and add:
+
+```env
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
 ```
 
 ---
 
 ## 📌 How It Works
 
-* Users can add a transaction with **amount, type, and description**
-* If the transaction type is **credit**, it adds to the balance
-* If the transaction type is **debit**, it subtracts from the balance
-* The app updates:
+- Users authenticate using JWT  
+- Each request is verified on the backend  
+- Transactions are stored in MongoDB with a **user reference**  
+- Balance is calculated dynamically:
+  - Income → Added  
+  - Expense → Subtracted  
 
-  * Total Balance
-  * Total Income
-  * Total Expenses
+---
+
+## ⚠️ Challenges Faced
+
+- Connecting frontend with backend APIs  
+- Implementing secure JWT authentication  
+- Fixing a major bug where **all users were seeing the same data**  
+  → Solved using **user-specific queries in MongoDB**
 
 ---
 
 ## 🔮 Future Improvements
 
-* Deploy the app online
+- Mobile responsiveness  
+- Edit transactions  
+- Charts & analytics  
+- Dark mode  
 
 ---
 
 ## 👨‍💻 Author
 
-**Prateek Garg**
+**Prateek Garg**  
+
+---
+
+## ⭐ Show Your Support
+
+If you like this project, consider giving it a ⭐ on GitHub!
